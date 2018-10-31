@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIScrpt : MonoBehaviour {
     bool StartCounting;
@@ -14,7 +15,8 @@ public class UIScrpt : MonoBehaviour {
     public GameObject Multiplier;
     public Text ScoreText;
     public Text MultiplierText;
- 
+
+    public Smash smash;
     void Start ()
     {
         StartCounting = true;
@@ -29,8 +31,6 @@ public class UIScrpt : MonoBehaviour {
 	
 	void Update ()
     {
-        score++;
-        multiplier++;
 
         if (StartCounting == true && TimerValue < TimerTarget)
         {
@@ -40,11 +40,16 @@ public class UIScrpt : MonoBehaviour {
             if (TimerValue == TimerTarget) // not registering as soon as timer is finished
             {
                 StartCounting = false;
+                SceneManager.LoadScene(0);
                 Debug.Log("TimeUp");
             }
         }
+        if(TimerValue>TimerTarget)
+        {
+            SceneManager.LoadScene(0);
+        }
 
-        ScoreText.text = "Score: " + score;
-        MultiplierText.text = "Multiplier: " + multiplier;
+        ScoreText.text = "Score: " + smash.Score;
+        MultiplierText.text = "Multiplier: " +smash.Multiplier;
     }
 }

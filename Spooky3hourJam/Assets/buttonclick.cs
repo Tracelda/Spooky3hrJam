@@ -16,6 +16,6 @@ public class buttonclick : MonoBehaviour {
 
     public void startGame()
     {
-        SceneManager.LoadScene("1");
+        SceneManager.LoadScene(1);
     }
 }

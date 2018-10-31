@@ -9,9 +9,14 @@ public class PlayerController : MonoBehaviour
 
 	private Vector3 Pos;
 
+    public Smash SmashScrpt;
 
 
-	void Update ()
+    private void Start()
+    {
+        SmashScrpt = GetComponent<Smash>();
+    }
+    void Update ()
 	{
 
 		RaycastHit Hit;														// Raycasthit setup
@@ -19,7 +24,7 @@ public class PlayerController : MonoBehaviour
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);            // ray to follow the mouse position on the scene
 
 		Pos = Input.mousePosition;
-		Pos.z = 5;
+		Pos.z = 3;
 
 		Bone.transform.position = Camera.main.ScreenToWorldPoint(Pos);
 
@@ -34,8 +39,15 @@ public class PlayerController : MonoBehaviour
 				if(Hit.collider.gameObject.name == "Pumpkin")
 				{
 					//add score 'n' stuff
-					Hit.collider.gameObject.GetComponent<PumpkinBlopper>().deActivate();
-				}
+					Hit.collider.transform.parent.gameObject.GetComponent<PumpkinBlopper>().deActivate();
+                    SoundScrpt.AudioManager.PlaySFX("Squish");
+                    Debug.Log("Play Squish");
+                    SmashScrpt.ScoreGoUp();
+                }
+                else
+                {
+                    SmashScrpt.NullMulti();
+                }
 			}
 		}
 	}
