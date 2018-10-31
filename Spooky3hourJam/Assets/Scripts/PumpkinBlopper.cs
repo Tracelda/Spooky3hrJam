@@ -9,10 +9,12 @@ public class PumpkinBlopper : MonoBehaviour {
 
     public float upTimers;
     private float curTimer;
+    public Animator animator;
 	// Use this for initialization
 	void Start () {
         pumpkin = transform.GetChild(0).gameObject;
-        pumpkin.SetActive(false);
+        animator = pumpkin.GetComponent<Animator>();
+        //pumpkin.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -29,23 +31,25 @@ public class PumpkinBlopper : MonoBehaviour {
             }
         }
 
-        if(Random.Range(0,100)>20 && isActive==false)
-        {
-            activate();
-        }
+        //if(Random.Range(0,100)>20 && isActive==false)
+        //{
+        //    activate();
+        //}
 	}
 
     public void activate()
     {
         isActive = true;
-        pumpkin.SetActive(true);
+        animator.SetTrigger("Run");
+        //pumpkin.SetActive(true);
+
     }
 
     public void deActivate()
     {
         isActive = false;
-        pumpkin.SetActive(false);
+        //pumpkin.SetActive(false);
     }
-
+    
 
 }
