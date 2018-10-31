@@ -28,6 +28,11 @@ public class PumpkinBlopper : MonoBehaviour {
                 deActivate();
             }
         }
+
+        if(Random.Range(0,100)>20 && isActive==false)
+        {
+            activate();
+        }
 	}
 
     public void activate()
