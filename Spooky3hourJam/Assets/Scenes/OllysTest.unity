@@ -298,6 +298,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1911545228790434, guid: 58f15f3ee6ce948428a5990d5ec26bf2, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 58f15f3ee6ce948428a5990d5ec26bf2, type: 2}
   m_IsPrefabParent: 0
@@ -309,6 +313,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1853138667}
+  - component: {fileID: 1853138668}
   m_Layer: 0
   m_Name: Generator
   m_TagString: Untagged
@@ -329,3 +334,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1853138668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1853138666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e6709eb6647ba4aa76187d434558cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pumpkingSpawner: {fileID: 1911545228790434, guid: 58f15f3ee6ce948428a5990d5ec26bf2,
+    type: 2}
+  gridDimentions: 100
